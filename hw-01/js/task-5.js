@@ -8,6 +8,7 @@ function getUserCountry() {
 function getDeliveryPrice(country) {
   let price;
   let isAvable = true;
+  let result;
 
   switch (country) {
     case 'Китай':
@@ -35,9 +36,11 @@ function getDeliveryPrice(country) {
       break;
   }
 
+  // eslint-disable-next-line no-unused-expressions
   isAvable
-    ? alert(`Доставка в ${country} будет стоить ${price} кредитов`)
-    : alert('В вашей стране доставка не доступна');
+    ? result = `Доставка в ${country} будет стоить ${price} кредитов`
+    : result = 'В вашей стране доставка не доступна';
+  alert(result);
 }
 
 const UserCountry = getUserCountry();
