@@ -1,15 +1,15 @@
 function getUserCountry() {
-  let Country = prompt('Введите вашу страну').toLowerCase();
-  const FirstLetter = Country.charAt(0).toUpperCase();
-  Country = FirstLetter + Country.slice(1);
-  return Country;
+  let country = prompt('Введите вашу страну').toLowerCase();
+  const firstLetter = country.charAt(0).toUpperCase();
+  country = firstLetter + country.slice(1);
+  return country;
 }
 
-function getDeliveryPrice(Country) {
+function getDeliveryPrice(country) {
   let price;
   let isAvable = true;
 
-  switch (Country) {
+  switch (country) {
     case 'Китай':
       price = 100;
       break;
@@ -36,7 +36,7 @@ function getDeliveryPrice(Country) {
   }
 
   isAvable
-    ? alert(`Доставка в ${Country} будет стоить ${price} кредитов`)
+    ? alert(`Доставка в ${country} будет стоить ${price} кредитов`)
     : alert('В вашей стране доставка не доступна');
 }
 
