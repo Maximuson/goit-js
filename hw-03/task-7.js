@@ -1,15 +1,15 @@
 const Transaction = {
-  DEPOSIT: "deposit",
-  WITHDRAW: "withdraw"
+  DEPOSIT: 'deposit',
+  WITHDRAW: 'withdraw',
 };
 
 /**
  * Метод отвечающий за создание UUID
  */
 function uuidv4() {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
-    let r = (Math.random() * 16) | 0,
-      v = c == "x" ? r : (r & 0x3) | 0x8;
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    const v = c == 'x' ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 }
@@ -48,7 +48,7 @@ const account = {
    */
   withdraw(amount) {
     if (amount > this.balance) {
-      alert("что снятие такой суммы не возможно, недостаточно средств.");
+      alert('что снятие такой суммы не возможно, недостаточно средств.');
     } else {
       const _Transaction = {};
       _Transaction.id = uuidv4();
@@ -79,9 +79,7 @@ const account = {
    * Метод ищет и возвращает объект транзации по id
    */
   getTransactionDetails(id) {
-    return this.transactions.find(e => {
-      if ((e.id = id)) return e;
-    });
+    return this.transactions.find((e) => e.id = id);
   },
 
   /**
@@ -89,11 +87,8 @@ const account = {
    * определенного типа транзакции из всей истории транзакций
    */
   getTransactionTotal(type) {
-    return this.transactions.reduce((result, elem) => {
-      if (elem.type === type) {
-        result += elem.amount;
-      }
-      return result;
-    }, 0);
-  }
+    return this.transactions
+      .filter((e) => e.type === type)
+      .reduce((result, { amount }) => result + amount, 0);
+  },
 };
