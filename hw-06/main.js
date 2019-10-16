@@ -6,12 +6,12 @@ console.log(getUserNames(users));
 
 const getUsersWithEyeColor = (users, color) => users.filter(({ eyeColor }) => eyeColor === color);
 
-// console.log(getUsersWithEyeColor(users, 'blue'));
+console.log(getUsersWithEyeColor(users, 'blue'));
 
-const getUsersWithGender = (users, Inpgender) => users.reduce((acc, { name, gender }) => {
-  gender === Inpgender && acc.push(name);
-  return acc;
-}, []);
+const getUsersWithGender = (users, gender) => users.reduce(
+  (acc, elem) => (elem.gender === gender ? [...acc, elem.name] : [...acc]),
+  [],
+);
 
 console.log(getUsersWithGender(users, 'male'));
 
@@ -45,11 +45,8 @@ const getNamesSortedByFriendsCount = (users) => users.sort((a, b) => a.friends.l
 
 console.log(getNamesSortedByFriendsCount(users));
 
-const getSortedUniqueSkills = (users) => {
-  const skillsResult = [];
-  users.forEach(({ skills }) => {
-    skillsResult.push(...skills);
-  });
+const getSortedUniqueSkills = (user) => {
+  const skillsResult = user.reduce((acc, { skills }) => [...acc, ...skills], []);
   return [...new Set(skillsResult)].sort();
 };
 
