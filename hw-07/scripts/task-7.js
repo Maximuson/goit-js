@@ -8,5 +8,5 @@ const changeFontSize = () => {
 };
 inputRange.addEventListener('input', changeFontSize);
 
-//if IE10
+// if IE10
 inputRange.addEventListener('change', changeFontSize);
