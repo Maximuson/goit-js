@@ -32,5 +32,11 @@ html {
     align-items: flex-end;
     max-height: 90vh;
     overflow: hidden;
-    width: 10000px;
+    width: max-content;
+}
+
+.boxes-wrapper {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow: scroll;
 }

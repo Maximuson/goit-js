@@ -45,3 +45,5 @@ renderBtn.addEventListener('click', () => {
   renderBoxes(countInput.value);
 });
 destroyBtn.addEventListener('click', destroyBoxes);
+
+renderBoxes(30);
