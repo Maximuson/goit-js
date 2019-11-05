@@ -1,9 +1,6 @@
-const inputElement = document.querySelector('#name-input');
-const spanElement = document.querySelector('#name-output');
+const userInput = document.querySelector('#name-input');
+const output = document.querySelector('#name-output');
 
-inputElement.addEventListener('keyup', () => {
-  const setAnonymous = () => { spanElement.textContent = 'незнакомец'; };
-  spanElement.textContent = inputElement.value;
-  // eslint-disable-next-line no-unused-expressions
-  inputElement.value === '' && setAnonymous();
+userInput.addEventListener('input', () => {
+  output.textContent = userInput.value || 'незнакомец';
 });

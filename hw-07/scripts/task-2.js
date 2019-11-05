@@ -9,15 +9,10 @@ const ingredients = [
 
 const wrapper = document.createElement('div');
 const list = document.querySelector('#ingredients');
-
-const createListItem = (data) => {
+const elements = ingredients.map(e => {
   const item = document.createElement('li');
-  item.innerText = data;
-  wrapper.appendChild(item);
-};
-
-ingredients.forEach((e) => {
-  createListItem(e);
+  item.innerText = e;
+  return item;
 });
 
-list.insertAdjacentHTML('beforeend', wrapper.innerHTML);
+list.append(...elements);
